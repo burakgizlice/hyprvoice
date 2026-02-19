@@ -337,6 +337,7 @@ func (p *pipeline) handleInjectAction(ctx context.Context, recorder recording.Re
 		p.sendError("Injection Error", "Failed to inject text", err)
 	} else {
 		log.Printf("Pipeline: Text injection completed successfully")
+		p.sendNotify(notify.MsgInjectionComplete)
 	}
 
 	p.setStatus(Idle)
